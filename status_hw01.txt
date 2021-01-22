@@ -12,7 +12,8 @@ Domain: DreamHost (Had existing domains here)
 ereed.xyz
 
 4. What's the URL of your Github repository for this assignment?
-https://github.com/emasreed/cs4550-hw01
+https://github.com/emasreed/cs4550-hw01 (Repo for the Assignment)
+https://github.com/emasreed (Overall Github profile)
 
 5. Which parts of this assignment did you have trouble with, if any?
 Some trouble with getting ssh set up but ended up being a configuration problem.
