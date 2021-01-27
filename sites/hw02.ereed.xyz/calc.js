@@ -30,7 +30,6 @@ function display(number) {
     number > Math.pow(10, DIGIT_NUM) ||
     number < Math.pow(10, DIGIT_NUM) * -1
   ) {
-      console.log("OVERFLOW")
     return Math.round(number).toExponential(DIGIT_NUM - 5);
   } else {
     const total_length = (number + "").replace(".", "").length;
@@ -38,8 +37,6 @@ function display(number) {
       return number;
     } else {
       const int_length = number.toFixed(0).length;
-      console.log(int_length);
-      console.log(DIGIT_NUM);
       if (Math.sign(number) == -1) {
         return number.toFixed(DIGIT_NUM - (int_length - 1));
       } else {
@@ -50,7 +47,6 @@ function display(number) {
 }
 
 window.onload = function () {
-  console.log("table has been loaded");
   result = document.getElementById("result");
   document.getElementById("nine").addEventListener("click", function () {
     if (length >= DIGIT_NUM) {
@@ -190,9 +186,6 @@ window.onload = function () {
     result.innerHTML = input_display(current_num);
   });
   document.getElementById("add-equal").addEventListener("click", function () {
-    console.log(operation);
-    console.log(first_term);
-    console.log(current_num);
     decimal_place = 0;
     length = 0;
     if (operation == "") {
