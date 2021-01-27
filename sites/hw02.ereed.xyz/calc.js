@@ -26,15 +26,25 @@ function input_display(number) {
 }
 
 function display(number) {
-  if (number > Math.pow(10, DIGIT_NUM)) {
-    return Math.round(number).toExponential();
+  if (
+    number > Math.pow(10, DIGIT_NUM) ||
+    number < Math.pow(10, DIGIT_NUM) * -1
+  ) {
+      console.log("OVERFLOW")
+    return Math.round(number).toExponential(DIGIT_NUM - 5);
   } else {
     const total_length = (number + "").replace(".", "").length;
     if (total_length < DIGIT_NUM) {
       return number;
     } else {
-      const int_length = Math.trunc(number).toString().length;
-      return number.toFixed(DIGIT_NUM - int_length);
+      const int_length = number.toFixed(0).length;
+      console.log(int_length);
+      console.log(DIGIT_NUM);
+      if (Math.sign(number) == -1) {
+        return number.toFixed(DIGIT_NUM - (int_length - 1));
+      } else {
+        return number.toFixed(DIGIT_NUM - int_length);
+      }
     }
   }
 }
@@ -43,7 +53,7 @@ window.onload = function () {
   console.log("table has been loaded");
   result = document.getElementById("result");
   document.getElementById("nine").addEventListener("click", function () {
-    if (length > DIGIT_NUM) {
+    if (length >= DIGIT_NUM) {
       return;
     }
     if (decimal_place < 0) {
@@ -56,7 +66,7 @@ window.onload = function () {
     result.innerHTML = input_display(current_num);
   });
   document.getElementById("eight").addEventListener("click", function () {
-    if (length > DIGIT_NUM) {
+    if (length >= DIGIT_NUM) {
       return;
     }
     if (decimal_place < 0) {
@@ -69,7 +79,7 @@ window.onload = function () {
     result.innerHTML = input_display(current_num);
   });
   document.getElementById("seven").addEventListener("click", function () {
-    if (length > DIGIT_NUM) {
+    if (length >= DIGIT_NUM) {
       return;
     }
     if (decimal_place < 0) {
@@ -82,7 +92,7 @@ window.onload = function () {
     result.innerHTML = input_display(current_num);
   });
   document.getElementById("six").addEventListener("click", function () {
-    if (length > DIGIT_NUM) {
+    if (length >= DIGIT_NUM) {
       return;
     }
     if (decimal_place < 0) {
@@ -95,7 +105,7 @@ window.onload = function () {
     result.innerHTML = input_display(current_num);
   });
   document.getElementById("five").addEventListener("click", function () {
-    if (length > DIGIT_NUM) {
+    if (length >= DIGIT_NUM) {
       return;
     }
     if (decimal_place < 0) {
@@ -108,7 +118,7 @@ window.onload = function () {
     result.innerHTML = input_display(current_num);
   });
   document.getElementById("four").addEventListener("click", function () {
-    if (length > DIGIT_NUM) {
+    if (length >= DIGIT_NUM) {
       return;
     }
     if (decimal_place < 0) {
@@ -121,7 +131,7 @@ window.onload = function () {
     result.innerHTML = input_display(current_num);
   });
   document.getElementById("three").addEventListener("click", function () {
-    if (length > DIGIT_NUM) {
+    if (length >= DIGIT_NUM) {
       return;
     }
     if (decimal_place < 0) {
@@ -134,7 +144,7 @@ window.onload = function () {
     result.innerHTML = input_display(current_num);
   });
   document.getElementById("two").addEventListener("click", function () {
-    if (length > DIGIT_NUM) {
+    if (length >= DIGIT_NUM) {
       return;
     }
     if (decimal_place < 0) {
@@ -147,7 +157,7 @@ window.onload = function () {
     result.innerHTML = input_display(current_num);
   });
   document.getElementById("one").addEventListener("click", function () {
-    if (length > DIGIT_NUM) {
+    if (length >= DIGIT_NUM) {
       return;
     }
     if (decimal_place < 0) {
@@ -160,7 +170,7 @@ window.onload = function () {
     result.innerHTML = input_display(current_num);
   });
   document.getElementById("zero").addEventListener("click", function () {
-    if (length > DIGIT_NUM) {
+    if (length >= DIGIT_NUM) {
       return;
     }
     if (decimal_place < 0) {
